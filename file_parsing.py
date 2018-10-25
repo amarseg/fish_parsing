@@ -1,31 +1,22 @@
 import pandas as pd, re
-
-rx_school = re.compile(r'''
+#Inspired by blogpost https://www.vipinajayakumar.com/parsing-text-with-python/
+#and accompanying stackoverflow thread https://stackoverflow.com/questions/47982949/how-to-parse-complex-text-files-using-python/47984221#47984221
+rx_cell = re.compile(r'''
     ^
-    School\s*=\s*(?P<school_name>.+)
-    (?P<school_content>[\s\S]+?)
-    (?=^School|\Z)
+    CELL\s*(?P<cell_name>.+)
+    (?P<cell_content>[\s\S]+?)
+    (?=^CELL|\Z)
 ''', re.MULTILINE | re.VERBOSE)
 
-rx_grade = re.compile(r'''
+rx_spots = re.compile(r'''
     ^
-    Grade\s*=\s*(?P<grade>.+)
-    (?P<students>[\s\S]+?)
-    (?=^Grade|\Z)
-''', re.MULTILINE | re.VERBOSE)
-
-rx_student_score = re.compile(r'''
-    ^
-    Student\ number,\ Name[\n\r]
-    (?P<student_names>(?:^\d+.+[\n\r])+)
-    \s*
-    ^
-    Student\ number,\ Score[\n\r]
-    (?P<student_scores>(?:^\d+.+[\n\r])+)
+    SPOTS\s*(?P<spots>.+)
+    (?P<spots_content>[\s\S]+?)
+    (?=^CELL|\Z)
 ''', re.MULTILINE | re.VERBOSE)
 
 
-result = ((school.group('school_name'), grade.group('grade'), student_number, name, score)
+result = ((cell.group('cell_content'), spots.group('spots_content'), student_number, name, score)
     for school in rx_school.finditer(string)
     for grade in rx_grade.finditer(school.group('school_content'))
     for student_score in rx_student_score.finditer(grade.group('students'))

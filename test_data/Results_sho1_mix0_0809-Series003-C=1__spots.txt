@@ -1,0 +1,10 @@
+Sample_Name	Mix	Date	Picture	Channel	Cell	Spots
+sho1	mix0	0809	Series003	1	Cell_1	0
+sho1	mix0	0809	Series003	1	Cell_2	9
+sho1	mix0	0809	Series003	1	Cell_3	0
+sho1	mix0	0809	Series003	1	Cell_4	0
+sho1	mix0	0809	Series003	1	Cell_5	2
+sho1	mix0	0809	Series003	1	Cell_6	1
+sho1	mix0	0809	Series003	1	Cell_7	14
+sho1	mix0	0809	Series003	1	Cell_8	1
+sho1	mix0	0809	Series003	1	Cell_9	4
