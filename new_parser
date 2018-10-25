@@ -1,0 +1,17 @@
+__author__ = 'am4613'
+
+import os
+import re
+import csv
+
+
+
+
+folder = "test_data/"
+
+file_list = os.listdir(folder)
+file_list = [x for x in file_list if re.search('spots',x)]
+csvfile = open(folder + 'Results.txt','w')
+filewriter = csv.writer(csvfile, delimiter = '\t')
+filewriter.writerow(['Sample_Name']+['Cell'] +['Spots']+['Spots_data'])
+for j in range(0,len(file_list)):

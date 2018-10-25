@@ -3,7 +3,6 @@ __author__ = 'am4613'
 import os
 import re
 import csv
-import pandas as pd
 
 def spot_counter(folder):
     file_list = os.listdir(folder)
@@ -24,7 +23,7 @@ def spot_counter(folder):
             file_content = f.readlines()
         file_content.append('')
         for i in range(0,len(file_content)):
-            if save = True
+            if save == True:
                 spots_data.append(file_conten[i])
             if bool(re.search('CELL', file_content[i])):
                 cell_names.append(file_content[i].split('\t')[1])
@@ -48,6 +47,6 @@ def spot_counter(folder):
                 filewriter.writerow([filename] + [cell_names[i].rstrip()] + [str(cell_spots[i])]+[spots_data])
 
 
-folder = "C:\\Users\\am4613\\Documents\\fish_parsing\\test"
+folder = "test_data/"
 
 spot_counter(folder)
