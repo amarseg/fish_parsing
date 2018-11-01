@@ -32,7 +32,7 @@ for j in range(0, len(file_index)-1):
             split_data = [row.split('\t') for row in data]
             cell_name = infile[cell_names_index[i]].split('\t')[1]
             reshaped_data = np.array(split_data).reshape(-1,31)
-            df = pd.DataFrame(reshaped_data)
+            df = pd.DataFrame(reshaped_data, columns = column_name)
             df['cell_name'] = cell_name.rstrip()
             df['file_name'] = file_name_df
             master_df = master_df.append(df, ignore_index = True)
